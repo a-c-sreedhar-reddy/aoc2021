@@ -5,3 +5,5 @@
 .merlin
 
 src/input
+
+*.bs.js
