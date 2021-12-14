@@ -153,7 +153,7 @@ Js.log(
     row
     ->Js.Array2.map(element =>
       switch element {
-      | Paper.Dot => "."
+      | Paper.Dot => " "
       | Paper.Hash => "#"
       }
     )
