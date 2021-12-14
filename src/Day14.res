@@ -1,8 +1,4 @@
-@send
-external flatMap: (array<'a>, 'a => array<'b>) => array<'b> = "flatMap"
-
 module Polymer = {
-  type template = array<(char, char)>
   let getMolecules = template => {
     let atoms = template->Js.String2.split("")
     switch atoms->Js.Array2.length {
@@ -27,15 +23,7 @@ module Polymer = {
         }, []), Js.String2.charAt(template, Js.String2.length(template) - 1))
     }
   }
-  let toString = template => {
-    let final = template->Belt_Array.joinWith("", ((first, _)) => first)
-    switch template->Js.Array2.length {
-    | 0 => final
-    | _ =>
-      let (_, last) = template[template->Js.Array2.length - 1]
-      final ++ last
-    }
-  }
+
   let getRuleFor = (rules, first) => {
     rules->Js.Array2.find(((atom1, atom2, _)) => atom1 ++ atom2 === first)
   }
